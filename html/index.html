@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gun &amp; Weapon Detection AI That Integrates Into Existing CCTV Systems</title>
+    <style id="rocket-critical-css">
+        iframe {
+            border: 0
+        }
+        html,
+        body,
+        div,
+        h1,
+        h3,
+        h4,
+        ul,
+        li,
+        a,
+        br,
+        img,
+        span {
+            margin: 0;
+            padding: 0
+        }
+
+        img,
+        a {
+            border: 0
+        }
+        img {
+            max-width: 100%;
+            height: auto
+        }
+        header,
+        nav {
+            display: block
+        }
+        iframe {
+            max-width: 100%
+        }
+        body {
+            font: 1em/1.65em 'Open Sans', "Arial", sans-serif;
+            word-wrap: break-word;
+            color: #666;
+            -webkit-font-smoothing: antialiased;
+            -ms-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%
+        }
+        a {
+            text-decoration: none;
+            outline: 0;
+            color: #ed1e24
+        }
+        ul {
+            margin: 0 0 1.4em 1.6em;
+            padding: 0
+        }
+        li {
+            margin: 0 0 1em 0;
+            padding: 0
+        }
+        h1,
+        h3,
+        h4 {
+            line-height: 1.4em;
+            margin: 0 0 .5em;
+            word-wrap: normal;
+            font-weight: 600;
+            color: #000
+        }
+
+        h1 {
+            font-size: 2.3em;
+            line-height: 1.2em;
+            letter-spacing: -.03em
+        }
+
+        h3 {
+            font-size: 1.4em;
+            letter-spacing: -.01em
+        }
+
+        h4 {
+            font-size: 1.1em;
+            letter-spacing: .05em;
+            line-height: 1.6em;
+            text-transform: uppercase
+        }
+
+        img,
+        #pagewrap,
+        .pagewidth,
+        #headerwrap,
+        #header,
+        #main-nav,
+        #main-nav ul a,
+        .sidemenu,
+        .header-bar,
+        #body,
+        #layout,
+        #content,
+        .widget,
+        .col3-1,
+        .col3-2,
+        .col2-1 {
+            box-sizing: border-box
+        }
+
+        .pagewidth,
+        .module_row>.row_inner {
+            width: 1160px;
+            max-width: 100%;
+            margin: 0 auto
+        }
+
+        #body {
+            max-width: 100%;
+            clear: both
+        }
+
+        #content {
+            width: 71%;
+            padding: 5.75% 0
+        }
+
+        .sidebar-none #content {
+            width: 100%;
+            float: none
+        }
+
+        .full_width #layout {
+            width: 100%;
+            max-width: 100%
+        }
+
+        .full_width #content {
+            padding: 0;
+            width: auto;
+            max-width: 100%;
+            float: none
+        }
+
+        .col3-1,
+        .col3-2,
+        .col2-1 {
+            margin-left: 3.2%;
+            float: left
+        }
+
+        .col2-1 {
+            width: 48.4%
+        }
+
+        .col3-1 {
+            width: 31.2%
+        }
+
+        .col3-2 {
+            width: 65.6%
+        }
+
+        .col3-1.first,
+        .col3-2.first,
+        .col2-1.first {
+            margin-left: 0;
+            clear: left
+        }
+
+        #headerwrap {
+            color: #000;
+            background-color: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+            position: relative;
+            width: 100%;
+            min-height: 55px;
+            z-index: 999;
+            top: 0;
+            left: 0
+        }
+
+        body:not(.page-loaded)#pagewrap {
+            padding-top: 0 !important
+        }
+
+        #header {
+            position: relative;
+            text-align: center;
+            padding: 2em 0;
+            overflow: visible;
+            z-index: 1
+        }
+
+        .header-widget {
+            clear: both;
+            font-size: .9em;
+            height: 100%
+        }
+
+        .header-widget .widget {
+            margin: 2em 0
+        }
+
+        .header-widget .widgettitle {
+            margin: 0 0 .5em;
+            font-size: 1em;
+            color: inherit
+        }
+
+        #site-logo {
+            margin: .5em auto;
+            padding: 0;
+            line-height: 1.2em;
+            font-size: 1.8em;
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: -.04em
+        }
+
+        #site-logo a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        #site-description {
+            margin: 0 0 1.8em;
+            padding: 0;
+            font-size: .9em;
+            line-height: 110%;
+            opacity: .7
+        }
+
+        #main-nav {
+            margin: 0;
+            padding: 0
+        }
+
+        #main-nav ul {
+            width: 210px
+        }
+
+        #main-nav li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+            display: inline-block
+        }
+
+        #main-nav a {
+            color: inherit;
+            display: block;
+            padding: .6em;
+            margin: 0;
+            text-decoration: none
+        }
+
+        #main-nav .current_page_item>a,
+        #main-nav .current-menu-item>a {
+            color: #ed1e24
+        }
+
+        #main-nav ul {
+            font-size: .95em;
+            line-height: 1.45em
+        }
+
+        #main-nav ul a {
+            font-weight: 400;
+            text-transform: none;
+            text-align: left;
+            padding: .4em 1.4em;
+            margin: 0;
+            display: block;
+            background: 0;
+            border: 0;
+            text-shadow: none;
+            border-radius: 0;
+            box-shadow: none
+        }
+
+        #main-nav li:not(.themify-widget-menu)>ul {
+            background-color: #fff
+        }
+
+        #main-nav ul a {
+            color: #353535
+        }
+
+        #main-nav li:not(.themify-widget-menu)>ul {
+            margin: 0;
+            padding: .6em 0;
+            list-style: none;
+            position: absolute;
+            z-index: 100;
+            display: none;
+            display: block;
+            opacity: 0;
+            left: -.3em;
+            top: 100%;
+            transform: scale(1, 0);
+            transform-origin: top;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 3px 12px rgba(0, 0, 0, .12);
+            border-radius: 5px
+        }
+
+        #main-nav ul li {
+            background: 0;
+            padding: 0;
+            margin: 0;
+            float: none;
+            display: block
+        }
+
+        #main-nav {
+            position: relative
+        }
+
+        .header-icons,
+        #menu-icon-close {
+            display: none
+        }
+
+        .header-icons a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        #headerwrap .header-icons>* {
+            vertical-align: middle
+        }
+
+        #menu-icon {
+            display: inline-block;
+            text-decoration: none;
+            margin: 0;
+            line-height: 1em
+        }
+
+        .menu-icon-inner {
+            border-bottom: 2px solid;
+            box-sizing: border-box;
+            display: inline-block;
+            position: relative;
+            width: 1.25em;
+            height: 1em;
+            overflow: hidden;
+            vertical-align: middle
+        }
+
+        .menu-icon-inner:before,
+        .menu-icon-inner:after {
+            content: '';
+            display: block;
+            border-top: 2px solid;
+            position: absolute;
+            left: 0;
+            width: 100%
+        }
+
+        .menu-icon-inner:before {
+            top: 0
+        }
+
+        .menu-icon-inner:after {
+            top: 50%
+        }
+
+        #headerwrap #menu-icon-close {
+            transform: rotateZ(0)
+        }
+
+        .widget {
+            margin: 0 0 2.4em
+        }
+
+        .widgettitle {
+            margin: 0 0 1em;
+            padding: 0;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1.3em;
+            letter-spacing: .09em
+        }
+
+        #footer-logo a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .clearfix:after,
+        #body:after,
+        #main-nav:after,
+        #content:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        body:after {
+            content: "";
+            opacity: 0;
+            z-index: -1
+        }
+
+        @media screen and (max-width:1260px) {
+            #pagewrap {
+                max-width: 100%
+            }
+
+            .pagewidth,
+            .module_row>.row_inner {
+                max-width: 96%
+            }
+
+            body {
+                font-size: 1em
+            }
+        }
+
+        @media screen and (max-width:1200px) {
+            #headerwrap #site-logo a img {
+                height: auto
+            }
+        }
+
+        @media screen and (max-width:760px) {
+            body {
+                font-size: .95em
+            }
+
+            h1 {
+                font-size: 1.8em
+            }
+
+            h3 {
+                font-size: 1.3em
+            }
+
+            h4 {
+                font-size: 1em
+            }
+
+            body .pagewidth,
+            .module_row>.row_inner {
+                max-width: 90%
+            }
+
+            #content {
+                width: 100%;
+                max-width: 100%;
+                float: none;
+                clear: both;
+                padding-top: 10%
+            }
+        }
+
+        @media screen and (max-width:680px) {
+
+            .col2-1,
+            .col3-1,
+            .col3-2 {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%
+            }
+
+            #headerwrap .header-icons {
+                right: 5%
+            }
+        }
+
+        #header {
+            text-align: inherit;
+            padding: 1em 0
+        }
+
+        .header-bar {
+            float: left
+        }
+
+        #site-logo {
+            margin: .5em .7em .5em 0
+        }
+
+        #site-description {
+            margin: 5px .5em 5px 0;
+            font-size: .8em
+        }
+
+        #main-nav {
+            float: right;
+            clear: right;
+            margin: 0
+        }
+
+        #main-nav li:not(.themify-widget-menu)>ul {
+            left: auto;
+            right: 0
+        }
+
+        body:not(.mobile_menu_active) .sidemenu-off .navbar-wrapper,
+        body:not(.mobile_menu_active) #header {
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center
+        }
+
+        body:not(.mobile_menu_active) .sidemenu-off {
+            flex: 1
+        }
+
+        body:not(.mobile_menu_active) .sidemenu-off #main-nav-wrap {
+            margin-left: auto
+        }
+
+        .header-widget {
+            height: auto
+        }
+
+        .header-widget .header-widget-inner {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .fixed-header #header {
+            min-height: inherit
+        }
+
+        .sidemenu .header-widget {
+            display: none
+        }
+
+        #headerwrap {
+            background-color: #ff8400;
+            color: rgba(255, 255, 255, .65)
+        }
+
+        #headerwrap a,
+        #footerwrap a {
+            color: #fff
+        }
+
+        #main-nav .current_page_item>a,
+        #main-nav .current-menu-item>a {
+            color: #000
+        }
+
+        #main-nav ul a {
+            color: #484848
+        }
+
+        #headerwrap h4 {
+            color: inherit
+        }
+
+        a {
+            color: #ff8400
+        }
+
+        body:not(.mobile-menu-visible) #headerwrap #menu-icon-close {
+            display: none
+        }
+
+        .themify_builder_content-127 .tb_zjot539.module_row {
+            padding-bottom: 10%;
+            padding-top: 8%;
+            z-index: 2
+        }
+
+        .themify_builder_content-127 .tb_zjot539.module_row>.builder_row_cover::before {
+            background-color: rgba(255, 255, 255, .77)
+        }
+
+        .themify_builder_content-127 .tb_zjot539.module_row>.tb_row_frame_bottom {
+            background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20preserveAspectRatio%3D%22none%22%20viewBox%3D%220%200%201500%20150%22%3E%3Cpath%20opacity%3D%22.36%22%20d%3D%22M455.5%2018.5l-98%2022-164-24L89.708%2030.535%20159.5%2058.5l124-14%20168%2050%20194.58-33.8zm654%2038L941.88%2083.8l167.62%2050.7%20133.184-36.018z%22%20fill%3D%22rgba(255%2C%20255%2C%20255%2C%201)%22%2F%3E%3Cg%20fill%3D%22rgba(255%2C%20255%2C%20255%2C%201)%22%3E%3Cpath%20d%3D%22M193.5%2016.5l164%2024%2098-22%20376%2083.277%20284-65.277%20178%2078L1500%2042.666V0H0v42.666z%22%2F%3E%3Cpath%20opacity%3D%22.6%22%20d%3D%22M455.5%2018.5l-98%2022-154.232-22.57L336.5%2046.5l143.923-8.588L681.698%2068.6z%22%2F%3E%3Cpath%20opacity%3D%22.8%22%20d%3D%22M831.5%20101.777l278-45.277%20184%2058-178-78z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+            height: 20%;
+            background-size: 100.1% 100%
+        }
+
+        .themify_builder_content-127 .tb_f28s539.module_column {
+            padding-top: 0%;
+            margin-bottom: 2em;
+            margin-top: 2%
+        }
+
+        .themify_builder_content-127 .tb_9wqw120.module-text {
+            text-align: left;
+            padding-bottom: 0%;
+            padding-top: 0%;
+            margin-bottom: -1px
+        }
+
+        .themify_builder_content-127 .tb_9wqw120.module-text .tb_text_wrap,
+        .themify_builder_content-127 .tb_9wqw120.module-text .tb_text_wrap h1 {
+            color: rgba(0, 0, 0, 1);
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            background-image: none
+        }
+
+        .themify_builder_content-127 .tb_uynq66.module-text .tb_text_wrap,
+        .themify_builder_content-127 .tb_uynq66.module-text .tb_text_wrap h3 {
+            color: rgba(255, 0, 0, 1);
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            background-image: none
+        }
+
+        .themify_builder_content-127 .tb_uynq66.module-text.module .tb_text_wrap h3:not(.module-title) {
+            color: rgba(255, 115, 0, 1);
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            background-image: none
+        }
+
+        .themify_builder_content-127 .tb_uynq66.module-text {
+            padding-top: 5%;
+            padding-bottom: 5%
+        }
+
+        .themify_builder_content-127 .tb_xw4c541.module-buttons .module-buttons-item a {
+            padding-left: 65px;
+            padding-right: 65px;
+            margin: 3px
+        }
+
+        .themify_builder_content-127 .tb_xw4c541.module-buttons .module-buttons-item a span {
+            color: rgba(255, 145, 0, 1)
+        }
+
+        .themify_builder_content-127 .tb_xw4c541.module-buttons {
+            font-weight: 700
+        }
+
+        .themify_builder_content-127 .tb_xw4c541.module-buttons.module .module-buttons .module-buttons-item a {
+            border: 1px solid rgba(255, 89, 0, 1)
+        }
+
+        .themify_builder_content-127 .tb_z35i128.module_column {
+            position: absolute;
+            top: auto
+        }
+
+        .themify_builder_content-127 .tb_53yj117.module_row {
+            padding-bottom: 3%;
+            padding-top: 2%
+        }
+
+        .themify_builder_content-127 .tb_q7aw382.module-text.module h1 {
+            line-height: 50px
+        }
+
+        .themify_builder_content-127 .tb_q7aw382.module-text {
+            padding: 2%;
+            text-align: center
+        }
+
+        @media screen and (max-width:480px) {
+            .themify_builder_content-127 .tb_zjot539.module_row {
+                padding-bottom: 20%;
+                padding-top: 7%
+            }
+
+            .themify_builder_content-127 .tb_53yj117.module_row {
+                padding-bottom: 10%;
+                padding-top: 10%
+            }
+        }
+
+        body {
+            font-family: 'Trebuchet MS', "Arial", "Helvetica", sans-serif
+        }
+
+        h1 {
+            font-family: 'Trebuchet MS', "Arial", "Helvetica", sans-serif;
+            font-weight: 300
+        }
+
+        h3 {
+            font-family: 'Trebuchet MS', "Arial", "Helvetica", sans-serif
+        }
+
+        h4 {
+            font-family: 'Trebuchet MS', "Arial", "Helvetica", sans-serif
+        }
+
+        #headerwrap {
+            background: none;
+            background-color: #fff
+        }
+
+        #headerwrap a {
+            color: #000
+        }
+
+        body[class*="themify"] #site-logo a img {
+            width: 55px
+        }
+
+        #site-description {
+            display: none
+        }
+
+        #main-nav-wrap #main-nav .current_page_item a,
+        #main-nav .current-menu-item a,
+        #main-nav>.current_page_item>a,
+        #main-nav>.current-menu-item>a {
+            color: #ff4800
+        }
+
+        #footer-logo a {
+            display: none
+        }
+
+        #footer a {
+            color: #ff9100
+        }
+
+        @media screen and (max-width:1024px) {
+            body[class*="themify"] #site-logo a img {
+                width: 55px
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            body[class*="themify"] #site-logo a img {
+                width: 55px
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            body[class*="themify"] #site-logo a img {
+                width: 55px
+            }
+        }
+
+        .module_column,
+        .themify_builder .module_row,
+        .themify_builder .module {
+            box-sizing: border-box
+        }
+
+        .themify_builder_content {
+            clear: both
+        }
+
+        .themify_builder .wow {
+            animation-fill-mode: both
+        }
+
+        .tb-align-left {
+            text-align: left
+        }
+
+        div.module_column {
+            margin-left: 3.2%;
+            margin-right: 0;
+            float: left;
+            position: relative
+        }
+
+        .module_column.col2-1 {
+            width: 48.4%
+        }
+
+        .module_column.col3-1 {
+            width: 31.2%
+        }
+
+        .module_column.col3-2 {
+            width: 65.6%
+        }
+
+        .module_column.col-full,
+        .module_column.first {
+            margin-left: 0;
+            clear: left
+        }
+
+        .row_inner:after,
+        .ui:after,
+        .module:after,
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .ui {
+            position: relative
+        }
+
+        .ui {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .ui.builder_button {
+            padding: .625em 1.25em
+        }
+
+        .ui.builder_button {
+            position: relative
+        }
+
+        .ui {
+            color: #555
+        }
+
+        .tb_default_color {
+            background-color: #f7f7f7
+        }
+
+        .tb_default_color {
+            border-color: rgba(0, 0, 0, .05)
+        }
+
+        .ui.builder_button {
+            display: inline-block;
+            text-decoration: none;
+            line-height: 130%;
+            box-shadow: none
+        }
+
+        .module .ui.builder_button {
+            text-decoration: none
+        }
+
+        .ui.builder_button {
+            border: solid 1px rgba(0, 0, 0, .05)
+        }
+
+        .module img {
+            border: 0;
+            vertical-align: bottom
+        }
+
+        .module-image {
+            max-width: 100%
+        }
+
+        .module-image .image-wrap {
+            width: auto;
+            max-width: 100%;
+            position: relative;
+            display: inline-block
+        }
+
+        .module-image .image-wrap img {
+            vertical-align: top;
+            display: inline-block
+        }
+
+        .module-image.image-left .image-wrap {
+            float: left;
+            margin: 0 1.5em 1em 0
+        }
+
+        .module-image.image-full-overlay .image-wrap img {
+            width: 100%
+        }
+
+        .themify_builder .auto_fullwidth .image-wrap,
+        .themify_builder .auto_fullwidth img {
+            width: 100%;
+            display: block
+        }
+
+        .module-divider {
+            border-left: none !important;
+            border-right: none !important;
+            border-bottom: none !important;
+            max-width: 100%
+        }
+
+        .module-divider.double {
+            border-style: double
+        }
+
+        .divider-center {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .module_column .module-buttons a {
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .module_column .module.module-buttons .tb_default_color {
+            color: #555
+        }
+
+        .ui.builder_button {
+            line-height: 100%
+        }
+
+        .module-buttons .module-buttons-item {
+            display: inline-block
+        }
+
+        .module-buttons-item+.module-buttons-item {
+            margin-left: .4em
+        }
+
+        .module-buttons span {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: .2em;
+            margin-right: .2em
+        }
+
+        .module_column .module-buttons.squared a {
+            border-radius: 0
+        }
+
+        .themify_builder .fullcover {
+            background-size: cover
+        }
+
+        .sidebar-none .themify_builder .module_row {
+            width: 100%
+        }
+
+        .row_inner,
+        .themify_builder .module,
+        .module_row,
+        .module_subrow {
+            position: relative
+        }
+
+        .builder_row_cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            transform: translateZ(0)
+        }
+
+        .builder_row_cover::before,
+        .builder_row_cover::after {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -100;
+            content: '';
+            display: block
+        }
+
+        .builder_row_cover::after {
+            opacity: 0
+        }
+
+        @media screen and (min-width:681px) and (max-width:1024px) {
+            body:not(.themify_builder_active) .hide-tablet {
+                display: none !important
+            }
+        }
+
+        @media screen and (max-width:680px) {
+            body:not(.themify_builder_active) .hide-mobile {
+                display: none !important
+            }
+        }
+
+        @media screen and (min-width:681px) and (max-width:1024px) and (orientation:landscape) {
+            body:not(.themify_builder_active) .hide-tablet:not(.hide-tablet_landscape) {
+                display: block !important
+            }
+        }
+
+        @media screen and (max-width:680px) {
+            .ui.builder_button {
+                padding: .525em 1.15em
+            }
+
+            .module-buttons span {
+                font-size: .9em
+            }
+
+            div:not(.tb_grid_classes)>.module_column {
+                margin-left: 0;
+                width: 100%;
+                max-width: 100%;
+                float: none
+            }
+        }
+
+        .subrow_inner,
+        .row_inner,
+        .module_subrow,
+        .tb-column-inner,
+        .themify_builder .col-full {
+            width: 100%;
+            box-sizing: border-box
+        }
+
+        .row_inner,
+        .themify_builder:not(.themify_builder_admin) .module_column,
+        .subrow_inner {
+            -ms-box-orient: horizontal;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-flow: wrap;
+            flex-flow: wrap
+        }
+
+        .module_column {
+            -ms-flex-align: flex-start;
+            align-items: flex-start;
+            -ms-flex-line-pack: flex-start;
+            align-content: flex-start
+        }
+
+        .col_align_middle>.module_column {
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-line-pack: center;
+            align-content: center
+        }
+
+        .tb_row_frame {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+            direction: ltr;
+            height: 150px;
+            background-size: 100% 100%
+        }
+
+        .tb_row_frame_bottom {
+            top: auto;
+            bottom: -1px;
+            transform: rotate(180deg) translateZ(0);
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit
+        }
+
+        .tb_row_frame.in_front {
+            z-index: 1
+        }
+
+        .module_row>.tb_row_frame.in_front {
+            z-index: 2
+        }
+
+        .tb_row_frame_bottom {
+            width: calc(100% + 2px);
+            left: -1px
+        }
+    </style>
+    <script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+        var gtm4wp_datalayer_name = "dataLayer";
+        var dataLayer = dataLayer || [];
+    </script>
+    <meta name="description" content="" />
+    <style>
+        .themify_builder .wow {
+            visibility: hidden
+        }
+
+        div:not(.caroufredsel_wrapper)>.themify_builder_slider>li:not(:first-child),
+        .mfp-hide {
+            display: none
+        }
+
+        a.themify_lightbox,
+        .module-gallery a,
+        .gallery-icon,
+        .themify_lightboxed_images .post a[href$="jpg"],
+        .themify_lightboxed_images .post a[href$="gif"],
+        .themify_lightboxed_images .post a[href$="png"],
+        .themify_lightboxed_images .post a[href$="JPG"],
+        .themify_lightboxed_images .post a[href$="GIF"],
+        .themify_lightboxed_images .post a[href$="PNG"],
+        .themify_lightboxed_images .post a[href$="jpeg"],
+        .themify_lightboxed_images .post a[href$="JPEG"] {
+            cursor: not-allowed
+        }
+
+        .themify_lightbox_loaded a.themify_lightbox,
+        .themify_lightbox_loaded .module-gallery a,
+        .themify_lightbox_loaded .gallery-icon {
+            cursor: pointer
+        }
+    </style>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important
+        }
+    </style>
+    <link rel='preload' id='themify-common-css'
+        href='css/themify.common.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <meta name="themify-framework-css"
+        data-href="css/themify.framework.min.css"
+        content="themify-framework-css" id="themify-framework-css" />
+    <meta name="builder-styles-css"
+        data-href="css/themify-builder-style.min.css"
+        content="builder-styles-css" id="builder-styles-css" />
+    <link rel='preload' id='wp-block-library-css'
+        href='css/style.min.css' as="style"
+        onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link data-minify="1" rel='preload' id='contact-form-7-css'
+        href='css/styles-ddea09ea6216de7f55148985e34dd216.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='theme-style-css'
+        href='css/style2.min.css' as="style"
+        onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='themify-media-queries-css'
+        href='css/media-queries.min.css' as="style"
+        onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='ultra-header-css'
+        href='css/header-top-widgets.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='ultra-color-css'
+        href='css/theme-color-orange.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='themify-mobile-menu-slidein-right-css'
+        href='css/menu-slidein-right.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link data-minify="1" rel='preload' id='themify-builder-127-generated-css'
+        href='css/themify-builder-127-generated-24e59805cf327fd5d7f17f53709ca968.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link data-minify="1" rel='preload' id='themify-customize-css'
+        href='css/themify-customizer-106be1fb26fc4861d709a4b756a1388f.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='themify-google-fonts-css'
+        href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700&#038;subset=latin'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <style id='rocket-lazyload-inline-css' type='text/css'>
+        .rll-youtube-player {
+            position: relative;
+            padding-bottom: 56.23%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%
+        }
+
+        .rll-youtube-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: 0 0
+        }
+
+        .rll-youtube-player img {
+            bottom: 0;
+            display: block;
+            left: 0;
+            margin: auto;
+            max-width: 100%;
+            width: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: none;
+            height: auto;
+            cursor: pointer;
+            -webkit-transition: .4s all;
+            -moz-transition: .4s all;
+            transition: .4s all
+        }
+
+        .rll-youtube-player img:hover {
+            -webkit-filter: brightness(75%)
+        }
+
+        .rll-youtube-player .play {
+            height: 72px;
+            width: 72px;
+            left: 50%;
+            top: 50%;
+            margin-left: -36px;
+            margin-top: -36px;
+            position: absolute;
+            background: url(images/youtube.png) no-repeat;
+            cursor: pointer
+        }
+    </style>
+    <script type='text/javascript' src='js/jquery.js'>
+    </script>
+    <script type='text/javascript'
+        src='js/jquery-migrate.min.js'></script>
+    <script data-minify="1" type='text/javascript'
+        src='js/gtm4wp-form-move-tracker-2699f8ffbb0831e395faf9dab3914fd7.js'>
+    </script>
+    <link rel='https://api.w.org/' href='https://gundetection.co.nz/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="#" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+        href="#" />
+    <meta name="generator" content="WordPress 5.4.1" />
+    <link rel='shortlink' href='https://gundetection.co.nz/' />
+    <script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+        /* <![CDATA[ */ //<![CDATA[
+        var dataLayer_content = {
+            "pagePostType": "frontpage",
+            "pagePostType2": "single-page",
+            "pagePostAuthor": "SiteAtion"
+        };
+        dataLayer.push(dataLayer_content); //]]> /* ]]> */
+    </script>
+    <script data-cfasync="false">
+        /* <![CDATA[ */ //<![CDATA[
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.' + 'js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NXGLKXS'); //]]> /* ]]> */
+    </script>
+    <link href="images/GunLogoFinal-copy-2.png" rel="shortcut icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <script type="text/javascript">
+        var tf_mobile_menu_trigger_point = 1000;
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @-webkit-keyframes themifyAnimatedBG {
+            0% {
+                background-color: #33baab
+            }
+
+            100% {
+                background-color: #e33b9e
+            }
+
+            50% {
+                background-color: #4961d7
+            }
+
+            33.3% {
+                background-color: #2ea85c
+            }
+
+            25% {
+                background-color: #2bb8ed
+            }
+
+            20% {
+                background-color: #dd5135
+            }
+        }
+
+        @keyframes themifyAnimatedBG {
+            0% {
+                background-color: #33baab
+            }
+
+            100% {
+                background-color: #e33b9e
+            }
+
+            50% {
+                background-color: #4961d7
+            }
+
+            33.3% {
+                background-color: #2ea85c
+            }
+
+            25% {
+                background-color: #2bb8ed
+            }
+
+            20% {
+                background-color: #dd5135
+            }
+        }
+
+        .themify_builder_row.animated-bg {
+            -webkit-animation: themifyAnimatedBG 30000ms infinite alternate;
+            animation: themifyAnimatedBG 30000ms infinite alternate
+        }
+    </style><noscript>
+        <style id="rocket-lazyload-nojs-css">
+            .rll-youtube-player,
+            [data-lazy-src] {
+                display: none !important
+            }
+        </style>
+    </noscript>
+    <script>
+        /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+        (function (w) {
+            "use strict";
+            if (!w.loadCSS) {
+                w.loadCSS = function () {}
+            }
+            var rp = loadCSS.relpreload = {};
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload")
+                } catch (e) {
+                    ret = !1
+                }
+                return function () {
+                    return ret
+                }
+            })();
+            rp.bindMediaToggle = function (link) {
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    link.media = finalMedia
+                }
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet)
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet)
+                }
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x"
+                });
+                setTimeout(enableStylesheet, 3000)
+            };
+            rp.poly = function () {
+                if (rp.support()) {
+                    return
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute(
+                            "data-loadcss")) {
+                        link.setAttribute("data-loadcss", !0);
+                        rp.bindMediaToggle(link)
+                    }
+                }
+            };
+            if (!rp.support()) {
+                rp.poly();
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run)
+                    })
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run)
+                    })
+                }
+            }
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS
+            } else {
+                w.loadCSS = loadCSS
+            }
+        }(typeof global !== "undefined" ? global : this))
+    </script>
+</head>
+
+<body
+    class="home page-template-default page page-id-127 themify-fw-4-8-0 themify-ultra-2-6-8 skin-default not-ie full_width sidebar-none no-touch builder-parallax-scrolling-active ready-view header-top-widgets fixed-header menu-slidein-right footer-horizontal-left theme-color-orange  social-widget-off rss-off search-off tile_enable filter-hover-none filter-featured-only masonry-enabled ">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXGLKXS" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript> <br style="display:none;">
+    <script type="text/javascript">
+        function themifyMobileMenuTrigger(e) {
+            var w = document.body.clientWidth;
+            if (w > 0 && w <= tf_mobile_menu_trigger_point) {
+                document.body.classList.add('mobile_menu_active');
+            } else {
+                document.body.classList.remove('mobile_menu_active');
+            }
+
+        }
+        themifyMobileMenuTrigger();
+        var _init = function () {
+            jQuery(window).on('tfsmartresize.tf_mobile_menu', themifyMobileMenuTrigger);
+            document.removeEventListener('DOMContentLoaded', _init, {
+                once: true,
+                passive: true
+            });
+            _init = null;
+        };
+        document.addEventListener('DOMContentLoaded', _init, {
+            once: true,
+            passive: true
+        });
+    </script>
+    <div id="pagewrap" class="hfeed site">
+        <div id="headerwrap">
+            <div class="header-icons"> <a id="menu-icon" href="#mobile-menu"><span class="menu-icon-inner"></span></a>
+            </div>
+            <header id="header" class="pagewidth clearfix" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+                <div class="header-bar">
+                    <div id="site-logo"><a href="#" title="Gun Detection"><img
+                                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                alt="Gun Detection" title="GunLogoFinal copy"
+                                data-lazy-src="images/GunLogoFinal-copy.png" /><noscript><img
+                                    src="images/GunLogoFinal-copy.png"
+                                    alt="Gun Detection" title="GunLogoFinal copy" /></noscript></a></div>
+                    <div id="site-description" class="site-description"><span>Firearm & Weapon Detection AI That
+                            Integrates Into Your Existing Camera System.</span></div>
+                </div>
+                <div id="mobile-menu" class="sidemenu sidemenu-off">
+                    <div class="navbar-wrapper clearfix">
+                        <nav id="main-nav-wrap" itemscope="itemscope"
+                            itemtype="https://schema.org/SiteNavigationElement">
+                            <ul id="main-nav" class="main-nav menu-name-main-navigation">
+                                <li id='menu-item-131'
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-127 current_page_item">
+                                    <a href="#">Home</a></li>
+                                <li id='menu-item-284' class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="#">Integration</a></li>
+                                <li id='menu-item-582' class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="#">Alerts</a></li>
+                                <li id='menu-item-401' class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="#">Benefits</a></li>
+                                <li id='menu-item-287' class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="#">Products</a></li>
+                                <li id='menu-item-384' class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="#">About</a></li>
+                                <li id='menu-item-356'
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub-menu has-sub-menu">
+                                    <a>Contact</a>
+                                    <ul class="sub-menu">
+                                        <li id='menu-item-357'
+                                            class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                                href="#">Australia</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-widget clearfix">
+                        <div class="header-widget-inner">
+                            <div class="col3-1 first">
+                                <div id="text-1027" class="widget widget_text">
+                                    <h4 class="widgettitle">NZ: 0508 24 22 88</h4>
+                                    <div class="textwidget"></div>
+                                </div>
+                            </div>
+                            <div class="col3-1 ">
+                                <div id="text-1028" class="widget widget_text">
+                                    <h4 class="widgettitle">AUS: 1800 24 22 88</h4>
+                                    <div class="textwidget"></div>
+                                </div>
+                            </div>
+                            <div class="col3-1 "></div>
+                        </div>
+                    </div> <a id="menu-icon-close" href="#"></a>
+                </div>
+            </header>
+        </div>
+        <div id="body" class="clearfix">
+            <div id="layout" class="pagewidth clearfix">
+                <div id="content" class="clearfix">
+                    <div id="page-127" class="type-page">
+                        <div class="page-content entry-content">
+                            <link rel="preload"
+                                href="css/themify-builder-style2.min.css"
+                                as="style" />
+                            <script type="text/javascript">
+                                if (document.getElementById("themify-builder-style") === null) {
+                                    var el = document.getElementById("builder-styles-css");
+                                    if (el !== null) {
+                                        var link = document.createElement("link");
+                                        link.id = "themify-builder-style";
+                                        link.rel = "stylesheet";
+                                        link.type = "text/css";
+                                        link.href = el.getAttribute("data-href");
+                                        el.parentNode.replaceChild(link, el);
+                                    }
+                                }
+                            </script>
+                            <div id="themify_builder_content-127" data-postid="127"
+                                class="themify_builder_content themify_builder_content-127 themify_builder">
+                                <div data-fullwidthvideo="video/Untitled.mp4"
+                                    data-playonmobile="play"
+                                    class="themify_builder_row module_row clearfix fullcover module_row_0 themify_builder_127_row module_row_127-0 tb_zjot539">
+                                    <div class="builder_row_cover"></div>
+                                    <div class="tb_row_frame tb_row_frame_bottom in_front"></div>
+                                    <div class="row_inner col_align_middle">
+                                        <div
+                                            class="module_column tb-column col3-2 first tb_127_column module_column_0 module_column_127-0-0 tb_f28s539">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_9wqw120    wow fadeIn ">
+                                                    <div class="tb_text_wrap">
+                                                        <h1 class="title aos-init aos-animate" data-aos="fade-up"
+                                                            data-aos-delay="150">Crime Prevention AI Against Active
+                                                            Shooters, Armed Robbery &amp; Intruders</h1>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="module module-text tb_uynq66    wow fadeIn animation_effect_delay_0.2 ">
+                                                    <div class="tb_text_wrap">
+                                                        <h3>Software that detects weapons and intruders as soon as
+                                                            they’re visible using existing CCTV cameras</h3>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="module module-buttons tb_xw4c541 normal solid squared   wow fadeIn animation_effect_delay_0.4 tb-align-left">
+                                                    <div class="module-buttons">
+                                                        <div class="module-buttons-item  buttons-horizontal"> <a
+                                                                href="#"
+                                                                class="ui builder_button tb_default_color">
+                                                                <span>NZ</span> </a></div>
+                                                        <div class="module-buttons-item  buttons-horizontal"> <a
+                                                                href="#"
+                                                                class="ui builder_button tb_default_color">
+                                                                <span>AUS</span> </a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col3-1 last tb_127_column module_column_1 module_column_127-0-1 tb_5i7s429">
+                                            <div class="tb-column-inner">
+                                                <div
+                                                    class="themify_builder_sub_row module_subrow clearfix sub_row_0-1-0 tb_mnia126 hide-tablet hide-mobile">
+                                                    <div class="subrow_inner col_align_top">
+                                                        <div
+                                                            class="sub_column module_column col2-1 first sub_column_post_127 sub_column_0-1-0-0 tb_pb1w128">
+                                                            <div class="tb-column-inner">
+                                                                <div
+                                                                    class="module module-image tb_zfzm190  image-left   wow fadeInLeft  auto_fullwidth">
+                                                                    <div class="image-wrap"> <img
+                                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                                                            class=" wp-post-image wp-image-133"
+                                                                            alt="Gun Logo"
+                                                                            data-lazy-srcset="images/Gun-Logo-206x150.png 206w"
+                                                                            data-lazy-sizes="(max-width: 949px) 100vw, 949px"
+                                                                            data-lazy-src="images/Gun-Logo.png" /><noscript><img
+                                                                                src="images/Gun-Logo.png"
+                                                                                class=" wp-post-image wp-image-133"
+                                                                                alt="Gun Logo"
+                                                                                srcset="images/Gun-Logo-206x150.png 206w"
+                                                                                sizes="(max-width: 949px) 100vw, 949px" /></noscript>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="sub_column module_column col2-1 last sub_column_post_127 sub_column_0-1-0-1 tb_z35i128">
+                                                            <div class="tb-column-inner">
+                                                                <div
+                                                                    class="module module-image tb_mo0f161  image-left   wow fadeInRightBig animation_effect_delay_1  auto_fullwidth">
+                                                                    <div class="image-wrap"> <img
+                                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
+                                                                            class=" wp-post-image wp-image-134"
+                                                                            alt="Gun Logo 2"
+                                                                            data-lazy-srcset="images/Gun-Logo-2.png 949w, images/Gun-Logo-2-300x218.png 300w, images/Gun-Logo-2-768x558.png 768w, images/Gun-Logo-2-200x145.png 200w, images/Gun-Logo-2-206x150.png 206w"
+                                                                            data-lazy-sizes="(max-width: 949px) 100vw, 949px"
+                                                                            data-lazy-src="images/Gun-Logo-2.png" /><noscript><img
+                                                                                src="images/Gun-Logo-2.png"
+                                                                                class=" wp-post-image wp-image-134"
+                                                                                alt="Gun Logo 2"
+                                                                                srcset="images/Gun-Logo-2.png 949w, images/Gun-Logo-2-300x218.png 300w, images/Gun-Logo-2-768x558.png 768w, images/Gun-Logo-2-200x145.png 200w, images/Gun-Logo-2-206x150.png 206w"
+                                                                                sizes="(max-width: 949px) 100vw, 949px" /></noscript>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix module_row_1 themify_builder_127_row module_row_127-1 tb_53yj117">
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col-full first tb_127_column module_column_0 module_column_127-1-0 tb_298i119">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_q7aw382    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h1 class="aos-init aos-animate" data-aos="fade-up"
+                                                            data-aos-delay="250">Gun Detection AI that Reacts Before
+                                                            Shots are Fired</h1>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-divider tb_ybva26 double   wow fadeInUpBig animation_effect_delay_0.2 divider-custom divider-center"
+                                                    style="border-width: 4px;border-color: rgba(255,123,0, 0.74);width: 125px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix repeat fullwidth module_row_2 themify_builder_127_row module_row_127-2 tb_xjgz737">
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col3-1 first tb_127_column module_column_0 module_column_127-2-0 tb_iwle738">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_l7g0365  image-center  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2075%200'%3E%3C/svg%3E"
+                                                            width="75" class=" wp-post-image wp-image-249" alt="gun1"
+                                                            data-lazy-srcset="images/gun1-75x75.png 75w, images/gun1-300x300.png 300w, images/gun1-150x150.png 150w, images/gun1-100x100.png 100w, images/gun1.png 500w"
+                                                            data-lazy-sizes="(max-width: 75px) 100vw, 75px"
+                                                            data-lazy-src="images/gun1-75x75.png" /><noscript><img
+                                                                src="images/gun1-75x75.png"
+                                                                width="75" class=" wp-post-image wp-image-249"
+                                                                alt="gun1"
+                                                                srcset="images/gun1-75x75.png 75w, images/gun1-300x300.png 300w, images/gun1-150x150.png 150w, images/gun1-100x100.png 100w, images/gun1.png 500w"
+                                                                sizes="(max-width: 75px) 100vw, 75px" /></noscript>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-text tb_1x1j899    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h6 style="text-align: center;">Detects Intruders Immediately</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col3-1 middle tb_127_column module_column_1 module_column_127-2-1 tb_wlff739">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_p77b240  image-center  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2075%200'%3E%3C/svg%3E"
+                                                            width="75" class=" wp-post-image wp-image-248" alt="Detect2"
+                                                            data-lazy-srcset="images/Detect2-75x75.png 75w, images/Detect2-300x300.png 300w, images/Detect2-150x150.png 150w, images/Detect2-100x100.png 100w, images/Detect2.png 500w"
+                                                            data-lazy-sizes="(max-width: 75px) 100vw, 75px"
+                                                            data-lazy-src="images/Detect2-75x75.png" /><noscript><img
+                                                                src="images/Detect2-75x75.png"
+                                                                width="75" class=" wp-post-image wp-image-248"
+                                                                alt="Detect2"
+                                                                srcset="images/Detect2-75x75.png 75w, images/Detect2-300x300.png 300w, images/Detect2-150x150.png 150w, images/Detect2-100x100.png 100w, images/Detect2.png 500w"
+                                                                sizes="(max-width: 75px) 100vw, 75px" /></noscript>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-text tb_c9ty157    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h6>When a weapon or intruder is detected, an immediate alert is
+                                                            sent to security personnel</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col3-1 last tb_127_column module_column_2 module_column_127-2-2 tb_evs6739">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_aq8q480  image-center  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2075%200'%3E%3C/svg%3E"
+                                                            width="75" class=" wp-post-image wp-image-247" alt="Camera3"
+                                                            data-lazy-srcset="images/Camera3-75x75.png 75w, images/Camera3-300x300.png 300w, images/Camera3-150x150.png 150w, images/Camera3-100x100.png 100w, images/Camera3.png 500w"
+                                                            data-lazy-sizes="(max-width: 75px) 100vw, 75px"
+                                                            data-lazy-src="images/Camera3-75x75.png" /><noscript><img
+                                                                src="images/Camera3-75x75.png"
+                                                                width="75" class=" wp-post-image wp-image-247"
+                                                                alt="Camera3"
+                                                                srcset="images/Camera3-75x75.png 75w, images/Camera3-300x300.png 300w, images/Camera3-150x150.png 150w, images/Camera3-100x100.png 100w, images/Camera3.png 500w"
+                                                                sizes="(max-width: 75px) 100vw, 75px" /></noscript>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-text tb_34ds329    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h6>Integrates directly into existing CCTV camera systems</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix repeat module_row_3 themify_builder_127_row module_row_127-3 tb_fll8196">
+                                    <div class="tb_row_frame tb_row_frame_top "></div>
+                                    <div class="tb_row_frame tb_row_frame_bottom "></div>
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col4-1 first tb_127_column module_column_0 module_column_127-3-0 tb_5pgb197">
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-2 middle tb_127_column module_column_1 module_column_127-3-1 tb_k3gb240">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_q8r4817  image-center  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2075%200'%3E%3C/svg%3E"
+                                                            width="75" class=" wp-post-image wp-image-253"
+                                                            alt="response5"
+                                                            data-lazy-srcset="images/response5-75x75.png 75w, images/response5-300x300.png 300w, images/response5-150x150.png 150w, images/response5.png 500w"
+                                                            data-lazy-sizes="(max-width: 75px) 100vw, 75px"
+                                                            data-lazy-src="images/response5-75x75.png" /><noscript><img
+                                                                src="images/response5-75x75.png"
+                                                                width="75" class=" wp-post-image wp-image-253"
+                                                                alt="response5"
+                                                                srcset="images/response5-75x75.png 75w, images/response5-300x300.png 300w, images/response5-150x150.png 150w, images/response5.png 500w"
+                                                                sizes="(max-width: 75px) 100vw, 75px" /></noscript>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-text tb_f3du907    ">
+                                                    <div class="tb_text_wrap">
+                                                        <p style="text-align: center;">Immediately pushes critical CCTV
+                                                            image alerts &#8211; time, date &amp; location stamped to
+                                                            Alarm Monitoring Centres, Security Guards, First Responders,
+                                                            CCTV Control Room operators or you the business owner of a
+                                                            crime in progress. The alert is sent without the criminal
+                                                            knowing the system has been triggered. A
+                                                            <strong>confirmed</strong> incident of the criminal
+                                                            <strong>‘still on scene’</strong> will always attract a
+                                                            quicker response from authorities with a higher chance of
+                                                            apprehension.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-1 last tb_127_column module_column_2 module_column_127-3-2 tb_z0p7240">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix module_row_4 themify_builder_127_row module_row_127-4 tb_cqpe431">
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col-full first tb_127_column module_column_0 module_column_127-4-0 tb_c54w432">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_ofh2433    wow fadeIn ">
+                                                    <div class="tb_text_wrap">
+                                                        <h2 class="title aos-init aos-animate" data-aos="fade-up"
+                                                            data-aos-delay="150">Real-time Alerts During Crisis
+                                                            Scenarios</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-divider tb_fcck434 double   wow fadeInUpBig animation_effect_delay_0.2 divider-custom divider-center"
+                                                    style="border-width: 4px;border-color: rgba(255,123,0, 0.74);width: 125px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix fullcover module_row_5 themify_builder_127_row module_row_127-5 tb_imlk261">
+                                    <div class="tb_row_frame tb_row_frame_top "></div>
+                                    <div class="tb_row_frame tb_row_frame_bottom "></div>
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col4-1 first tb_127_column module_column_0 module_column_127-5-0 tb_evg4263">
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-2 middle tb_127_column module_column_1 module_column_127-5-1 tb_mwsc841">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_fkya320    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h6 style="text-align: center;">AI that eliminates panic button
+                                                            confusion by confirming the use of a firearm or other
+                                                            weapons within 3 seconds</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-accordion tb_ftd2373  "
+                                                    data-behavior="accordion">
+                                                    <ul class="ui module-accordion plus-icon-button  orange">
+                                                        <li>
+                                                            <div class="accordion-title"> <a href="#acc-tb_ftd2373-0"
+                                                                    aria-controls="acc-tb_ftd2373-0"
+                                                                    aria-expanded="false"> <span
+                                                                        class="tb_title_accordion">Read More ...</span>
+                                                                </a></div>
+                                                            <div id="acc-tb_ftd2373-0" aria-hidden="true"
+                                                                class="accordion-content clearfix  default-closed">
+                                                                <div class="tb_text_wrap">
+                                                                    <p>Typically every potential Armed Robbery target
+                                                                        <em>Bank</em>, <em>Service Station</em>,
+                                                                        <em>Liquor Store</em>, <em>corner</em>
+                                                                        <em>Shop</em> has an alarm with a ‘panic button’
+                                                                        (usually silent) monitored by a Central
+                                                                        Monitoring Centre. Once pushed Alarm Monitoring
+                                                                        centre will then pass this activation onto the
+                                                                        Police via a landline call to the nearest Police
+                                                                        Communication centre who may then attend the
+                                                                        scene.</p>
+                                                                    <p>Panic button confusion – why was it pushed ?</p>
+                                                                    <ul>
+                                                                        <li>Accidentally by staff member ?</li>
+                                                                        <li>Is it a false alarm ?</li>
+                                                                        <li>Is it a Robbery ?</li>
+                                                                        <li>Is it a fight or dis-order ?</li>
+                                                                        <li>Are firearms or weapons involved ?</li>
+                                                                        <li>Is it a drunk, drugged, aggressive or
+                                                                            mentally impaired customer intimidating
+                                                                            staff ?</li>
+                                                                        <li>Are the staff in a position to get to the
+                                                                            panic button and safely press it ?</li>
+                                                                        <li>Has the offender already fled the scene ?
+                                                                        </li>
+                                                                    </ul>
+                                                                    <p>Our Artificial Intelligence technology will
+                                                                        eliminate this confusion by recognising and
+                                                                        confirming the use of a firearm or other weapons
+                                                                        within 3 seconds of the offender presenting them
+                                                                        confirming an armed robbery is in progress. We
+                                                                        also now have a description of the offender and
+                                                                        the weapon.</p>
+                                                                    <p>Our AI technology can immediately send these
+                                                                        critical CCTV image alerts &#8211; time/date
+                                                                        stamped with location details to Alarm
+                                                                        Monitoring Centres, Security Guards, First
+                                                                        Responders, CCTV Control Room operators, Police
+                                                                        Services of a crime in progress while the
+                                                                        criminal is still onsite and all without the
+                                                                        criminal’s knowledge.</p>
+                                                                    <p>A <strong>confirmed</strong> incident of the
+                                                                        criminal <strong>‘still on scene’</strong> will
+                                                                        always attract a quicker response from
+                                                                        authorities with a higher chance of
+                                                                        apprehension.</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="module module-video tb_6sm4843 video-top   "
+                                                    style="z-index:7;">
+                                                    <div class="video-wrap">
+                                                        <div style="width: 640px; " class="wp-video">
+                                                            <!--[if lt IE 9]><script>document.createElement('video');</script><![endif]--><video
+                                                                class="wp-video-shortcode" id="video-127-1" width="640"
+                                                                height="360" preload="metadata" controls="controls">
+                                                                <source type="video/mp4"
+                                                                    src="video/GunDetection2.mp4" />
+                                                                <a
+                                                                    href="video/GunDetection2.mp4">video/GunDetection2.mp4</a></video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-1 last tb_127_column module_column_2 module_column_127-5-2 tb_pxy8841">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix module_row_6 themify_builder_127_row module_row_127-6 tb_5914948">
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col-full first tb_127_column module_column_0 module_column_127-6-0 tb_lmy9950">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_itia951    wow fadeIn ">
+                                                    <div class="tb_text_wrap">
+                                                        <h2 class="title aos-init aos-animate" data-aos="fade-up"
+                                                            data-aos-delay="150">Designed For Places That Pose Risk</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-divider tb_8fy5951 double   wow fadeInUpBig animation_effect_delay_0.2 divider-custom divider-center"
+                                                    style="border-width: 4px;border-color: rgba(255,123,0, 0.74);width: 125px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix fullwidth module_row_7 themify_builder_127_row module_row_127-7 tb_mvlw20">
+                                    <div class="row_inner col_align_top gutter-none" data-basecol="5"
+                                        data-col_mobile="column4-2">
+                                        <div
+                                            class="module_column tb-column col5-1 first tb_127_column module_column_0 module_column_127-7-0 tb_385e23">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_9tnl772  image-full-overlay  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E"
+                                                            width="700" height="400" class=" wp-post-image wp-image-327"
+                                                            title="Retail Shops " alt="Retail Shops "
+                                                            data-lazy-src="images/grocery-cart-with-item-1005638-700x400.jpg" /><noscript><img
+                                                                src="images/grocery-cart-with-item-1005638-700x400.jpg"
+                                                                width="700" height="400"
+                                                                class=" wp-post-image wp-image-327"
+                                                                title="Retail Shops " alt="Retail Shops " /></noscript>
+                                                    </div>
+                                                    <div class="image-content">
+                                                        <h3 class="image-title"> Retail Shops & Malls</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col5-1 second tb_127_column module_column_1 module_column_127-7-1 tb_vgqj23">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_jo9e402  image-full-overlay  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E"
+                                                            width="700" height="400" class=" wp-post-image wp-image-316"
+                                                            title="Places Of Worship" alt="Places Of Worship"
+                                                            data-lazy-src="images/diveevo-140542_1280-700x400.jpg" /><noscript><img
+                                                                src="images/diveevo-140542_1280-700x400.jpg"
+                                                                width="700" height="400"
+                                                                class=" wp-post-image wp-image-316"
+                                                                title="Places Of Worship"
+                                                                alt="Places Of Worship" /></noscript></div>
+                                                    <div class="image-content">
+                                                        <h3 class="image-title"> Places Of Worship</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col5-1 third tb_127_column module_column_2 module_column_127-7-2 tb_wzrn24">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_ojts877  image-full-overlay  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E"
+                                                            width="700" height="400" class=" wp-post-image wp-image-315"
+                                                            title="Universities " alt="Universities "
+                                                            data-lazy-src="images/brown-concrete-cathedral-1130683-700x400.jpg" /><noscript><img
+                                                                src="images/brown-concrete-cathedral-1130683-700x400.jpg"
+                                                                width="700" height="400"
+                                                                class=" wp-post-image wp-image-315"
+                                                                title="Universities " alt="Universities " /></noscript>
+                                                    </div>
+                                                    <div class="image-content">
+                                                        <h3 class="image-title"> Universities & Schools</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col5-1 fourth tb_127_column module_column_3 module_column_127-7-3 tb_3ueb24">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-image tb_bzs2200  image-full-overlay  ">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E"
+                                                            width="700" height="400" class=" wp-post-image wp-image-317"
+                                                            title="Banking " alt="Banking "
+                                                            data-lazy-src="images/low-angle-photography-of-buildings-under-blue-and-white-sky-998499-700x400.jpg" /><noscript><img
+                                                                src="images/low-angle-photography-of-buildings-under-blue-and-white-sky-998499-700x400.jpg"
+                                                                width="700" height="400"
+                                                                class=" wp-post-image wp-image-317" title="Banking "
+                                                                alt="Banking " /></noscript></div>
+                                                    <div class="image-content">
+                                                        <h3 class="image-title"> Banking & Finance</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col5-1 last tb_127_column module_column_4 module_column_127-7-4 tb_kohm777">
+                                            <div class="tb-column-inner">
+                                                <div
+                                                    class="module module-image tb_28st795  image-full-overlay   hide-tablet hide-mobile">
+                                                    <div class="image-wrap"> <img
+                                                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20400'%3E%3C/svg%3E"
+                                                            width="700" height="400" class=" wp-post-image wp-image-318"
+                                                            title="Public Spaces" alt="Public Spaces"
+                                                            data-lazy-src="images/people-3378329_1280-700x400.jpg" /><noscript><img
+                                                                src="images/people-3378329_1280-700x400.jpg"
+                                                                width="700" height="400"
+                                                                class=" wp-post-image wp-image-318"
+                                                                title="Public Spaces" alt="Public Spaces" /></noscript>
+                                                    </div>
+                                                    <div class="image-content">
+                                                        <h3 class="image-title"> Public Spaces</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix module_row_8 themify_builder_127_row module_row_127-8 tb_r2jn916">
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col-full first tb_127_column module_column_0 module_column_127-8-0 tb_notg918">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_3v1j918    wow fadeIn ">
+                                                    <div class="tb_text_wrap">
+                                                        <h2 class="title aos-init aos-animate" data-aos="fade-up"
+                                                            data-aos-delay="150">Demonstrations At Installed Sites</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="module module-divider tb_uv6x857 double   wow fadeInUpBig animation_effect_delay_0.2 divider-custom divider-center"
+                                                    style="border-width: 4px;border-color: rgba(255,123,0, 0.74);width: 125px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix fullcover module_row_9 themify_builder_127_row module_row_127-9 tb_3poz200">
+                                    <div class="tb_row_frame tb_row_frame_top "></div>
+                                    <div class="tb_row_frame tb_row_frame_bottom "></div>
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col4-1 first tb_127_column module_column_0 module_column_127-9-0 tb_k1f3200">
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-2 middle tb_127_column module_column_1 module_column_127-9-1 tb_m0lb201">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-video tb_14wm201 video-top   video-autoplay"
+                                                    style="z-index:7;">
+                                                    <div class="video-wrap">
+                                                        <div style="width: 640px; " class="wp-video"><video
+                                                                class="wp-video-shortcode" id="video-127-2" width="640"
+                                                                height="360" autoplay="1" preload="metadata"
+                                                                controls="controls">
+                                                                <source type="video/mp4"
+                                                                    src="video/y2mate.com-Actuate-Threat-Detection-Demo-Video_DW3An4r0LCI_360p.mp4" />
+                                                                <a
+                                                                    href="video/y2mate.com-Actuate-Threat-Detection-Demo-Video_DW3An4r0LCI_360p.mp4">video/y2mate.com-Actuate-Threat-Detection-Demo-Video_DW3An4r0LCI_360p.mp4</a></video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-1 last tb_127_column module_column_2 module_column_127-9-2 tb_6zzb201">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="themify_builder_row module_row clearfix repeat module_row_10 themify_builder_127_row module_row_127-10 tb_2nom830">
+                                    <div class="builder_row_cover"></div>
+                                    <div class="row_inner col_align_top">
+                                        <div
+                                            class="module_column tb-column col4-2 first tb_127_column module_column_0 module_column_127-10-0 tb_9bje833">
+                                            <div class="tb-column-inner">
+                                                <div class="module module-text tb_s3fj352    ">
+                                                    <div class="tb_text_wrap">
+                                                        <h2>Talk To An AI Security Expert In:</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-1 middle tb_127_column module_column_1 module_column_127-10-1 tb_3sec490">
+                                            <div class="tb-column-inner">
+                                                <div
+                                                    class="module module-buttons tb_w0in273 normal solid squared   wow fadeInRight tb-align-left">
+                                                    <div class="module-buttons">
+                                                        <div class="module-buttons-item  buttons-horizontal"> <a
+                                                                href="https://gundetection.co.nz/contact-nz/"
+                                                                class="ui builder_button tb_default_color">
+                                                                <span>NZ</span> </a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="module_column tb-column col4-1 last tb_127_column module_column_2 module_column_127-10-2 tb_el6676">
+                                            <div class="tb-column-inner">
+                                                <div
+                                                    class="module module-buttons tb_72ei604 normal solid squared   wow fadeInRight animation_effect_delay_0.3 tb-align-left">
+                                                    <div class="module-buttons">
+                                                        <div class="module-buttons-item  buttons-horizontal"> <a
+                                                                href="https://gundetection.co.nz/contact-aus/"
+                                                                class="ui builder_button tb_default_color">
+                                                                <span>AUS</span> </a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footerwrap">
+            <footer id="footer" class="pagewidth clearfix" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
+                <div class="back-top clearfix ">
+                    <div class="arrow-up"><a href="#header"></a></div>
+                </div>
+                <div class="main-col first clearfix">
+                    <div class="footer-left-wrap first">
+                        <div class="footer-logo-wrapper clearfix">
+                            <div id="footer-logo"><a href="#" title="Gun Detection"><span>Gun
+                                        Detection</span></a></div>
+                        </div>
+                    </div>
+                    <div class="footer-right-wrap">
+                        <div class="footer-nav-wrap"></div>
+                    </div>
+                </div>
+                <div class="section-col clearfix">
+                    <div class="footer-widgets-wrap">
+                        <div class="footer-widgets clearfix">
+                            <div class="col3-1 first">
+                                <div id="text-1026" class="widget widget_text">
+                                    <h4 class="widgettitle">Contact</h4>
+                                    <div class="textwidget">
+                                        <p><a href="#">Australia</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col3-1 ">
+                                <div id="nav_menu-2" class="widget widget_nav_menu">
+                                    <h4 class="widgettitle">Sitemap</h4>
+                                    <div class="menu-footer-container">
+                                        <ul id="menu-footer" class="menu">
+                                            <li id="menu-item-387"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-127 current_page_item menu-item-387">
+                                                <a href="#" aria-current="page">Home</a></li>
+                                            <li id="menu-item-389"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-389">
+                                                <a href="#">News</a>
+                                            </li>
+                                            <li id="menu-item-390"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-390">
+                                                <a href="#">Integration</a></li>
+                                            <li id="menu-item-388"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-388">
+                                                <a href="#">About</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col3-1 ">
+                                <div id="text-1025" class="widget widget_text">
+                                    <h4 class="widgettitle">About</h4>
+                                    <div class="textwidget">
+                                        <div class="page" title="Page 1">
+                                            <div class="section">
+                                                <div class="layoutArea">
+                                                    <div class="column">
+                                                        <p>Weapon detection software that turns any CCTV camera into a
+                                                            gun-detecting security system. The cloud based program
+                                                            identifies weapons as soon as they’re visible and
+                                                            immediately notifies security personnel. This allows
+                                                            response to threats in real-time, before shots are fired.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-text clearfix">
+                    <div class="footer-text-inner">
+                        <div class="one">© Gun Detection NZ Ltd.</div>
+                        <div class="two">Site By > <a href="#">Web Merchants</a></div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="application/ld+json">
+        [{
+            "@context": "https:\/\/schema.org",
+            "@type": "WebPage",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https:\/\/gundetection.co.nz\/"
+            },
+            "headline": "Home",
+            "datePublished": "2020-03-03T04:19:18+12:00",
+            "dateModified": "2020-03-03T04:19:18+12:00",
+            "description": ""
+        }]
+    </script>
+    <link rel='preload' id='mediaelement-css'
+        href='css/mediaelementplayer-legacy.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' id='wp-mediaelement-css'
+        href='css/wp-mediaelement.min.css' as="style"
+        onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var themify_vars = {
+            "version": "4.8.0",
+            "url": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra\/themify",
+            "wp": "5.4.1",
+            "map_key": null,
+            "bing_map_key": null,
+            "includesURL": "https:\/\/gundetection.co.nz\/wp-includes\/",
+            "isCached": "on",
+            "commentUrl": "",
+            "minify": {
+                "css": {
+                    "themify-icons": 1,
+                    "lightbox": 1,
+                    "main": 1,
+                    "themify-builder-style": 1
+                },
+                "js": {
+                    "backstretch.themify-version": 1,
+                    "bigvideo": 1,
+                    "themify.dropdown": 1,
+                    "themify.mega-menu": 1,
+                    "themify.builder.script": 1,
+                    "themify.scroll-highlight": 1,
+                    "themify-youtube-bg": 1,
+                    "themify-ticks": 1
+                }
+            },
+            "media": {
+                "css": {
+                    "wp-mediaelement": {
+                        "src": "https:\/\/gundetection.co.nz\/wp-includes\/js\/mediaelement\/wp-mediaelement.min.css",
+                        "v": false
+                    },
+                    "mediaelement": {
+                        "src": "https:\/\/gundetection.co.nz\/wp-includes\/js\/mediaelement\/mediaelementplayer-legacy.min.css",
+                        "v": "4.2.13-9993131"
+                    }
+                },
+                "_wpmejsSettings": "var _wpmejsSettings = {\"pluginPath\":\"\\\/wp-includes\\\/js\\\/mediaelement\\\/\",\"classPrefix\":\"mejs-\",\"stretching\":\"responsive\"};",
+                "js": {
+                    "mediaelement-core": {
+                        "src": "https:\/\/gundetection.co.nz\/wp-includes\/js\/mediaelement\/mediaelement-and-player.min.js",
+                        "v": "4.2.13-9993131",
+                        "extra": {
+                            "before": [false,
+                                "var mejsL10n = {\"language\":\"en\",\"strings\":{\"mejs.download-file\":\"Download File\",\"mejs.install-flash\":\"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\\\/\\\/get.adobe.com\\\/flashplayer\\\/\",\"mejs.fullscreen\":\"Fullscreen\",\"mejs.play\":\"Play\",\"mejs.pause\":\"Pause\",\"mejs.time-slider\":\"Time Slider\",\"mejs.time-help-text\":\"Use Left\\\/Right Arrow keys to advance one second, Up\\\/Down arrows to advance ten seconds.\",\"mejs.live-broadcast\":\"Live Broadcast\",\"mejs.volume-help-text\":\"Use Up\\\/Down Arrow keys to increase or decrease volume.\",\"mejs.unmute\":\"Unmute\",\"mejs.mute\":\"Mute\",\"mejs.volume-slider\":\"Volume Slider\",\"mejs.video-player\":\"Video Player\",\"mejs.audio-player\":\"Audio Player\",\"mejs.captions-subtitles\":\"Captions\\\/Subtitles\",\"mejs.captions-chapters\":\"Chapters\",\"mejs.none\":\"None\",\"mejs.afrikaans\":\"Afrikaans\",\"mejs.albanian\":\"Albanian\",\"mejs.arabic\":\"Arabic\",\"mejs.belarusian\":\"Belarusian\",\"mejs.bulgarian\":\"Bulgarian\",\"mejs.catalan\":\"Catalan\",\"mejs.chinese\":\"Chinese\",\"mejs.chinese-simplified\":\"Chinese (Simplified)\",\"mejs.chinese-traditional\":\"Chinese (Traditional)\",\"mejs.croatian\":\"Croatian\",\"mejs.czech\":\"Czech\",\"mejs.danish\":\"Danish\",\"mejs.dutch\":\"Dutch\",\"mejs.english\":\"English\",\"mejs.estonian\":\"Estonian\",\"mejs.filipino\":\"Filipino\",\"mejs.finnish\":\"Finnish\",\"mejs.french\":\"French\",\"mejs.galician\":\"Galician\",\"mejs.german\":\"German\",\"mejs.greek\":\"Greek\",\"mejs.haitian-creole\":\"Haitian Creole\",\"mejs.hebrew\":\"Hebrew\",\"mejs.hindi\":\"Hindi\",\"mejs.hungarian\":\"Hungarian\",\"mejs.icelandic\":\"Icelandic\",\"mejs.indonesian\":\"Indonesian\",\"mejs.irish\":\"Irish\",\"mejs.italian\":\"Italian\",\"mejs.japanese\":\"Japanese\",\"mejs.korean\":\"Korean\",\"mejs.latvian\":\"Latvian\",\"mejs.lithuanian\":\"Lithuanian\",\"mejs.macedonian\":\"Macedonian\",\"mejs.malay\":\"Malay\",\"mejs.maltese\":\"Maltese\",\"mejs.norwegian\":\"Norwegian\",\"mejs.persian\":\"Persian\",\"mejs.polish\":\"Polish\",\"mejs.portuguese\":\"Portuguese\",\"mejs.romanian\":\"Romanian\",\"mejs.russian\":\"Russian\",\"mejs.serbian\":\"Serbian\",\"mejs.slovak\":\"Slovak\",\"mejs.slovenian\":\"Slovenian\",\"mejs.spanish\":\"Spanish\",\"mejs.swahili\":\"Swahili\",\"mejs.swedish\":\"Swedish\",\"mejs.tagalog\":\"Tagalog\",\"mejs.thai\":\"Thai\",\"mejs.turkish\":\"Turkish\",\"mejs.ukrainian\":\"Ukrainian\",\"mejs.vietnamese\":\"Vietnamese\",\"mejs.welsh\":\"Welsh\",\"mejs.yiddish\":\"Yiddish\"}};"
+                            ]
+                        }
+                    },
+                    "mediaelement-migrate": {
+                        "src": "https:\/\/gundetection.co.nz\/wp-includes\/js\/mediaelement\/mediaelement-migrate.min.js",
+                        "v": false,
+                        "extra": ""
+                    }
+                }
+            },
+            "scrollTo": null
+        };
+        var tbLocalScript = {
+            "ajaxurl": "https:\/\/gundetection.co.nz\/wp-admin\/admin-ajax.php",
+            "isAnimationActive": "1",
+            "isParallaxActive": "1",
+            "isScrollEffectActive": "1",
+            "isStickyScrollActive": "1",
+            "animationInviewSelectors": [".module.wow", ".module_row.wow", ".builder-posts-wrap > .post.wow"],
+            "backgroundSlider": {
+                "autoplay": 5000
+            },
+            "animationOffset": "100",
+            "videoPoster": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra\/themify\/themify-builder\/img\/blank.png",
+            "backgroundVideoLoop": "yes",
+            "builder_url": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra\/themify\/themify-builder",
+            "framework_url": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra\/themify",
+            "version": "4.8.0",
+            "fullwidth_support": "1",
+            "fullwidth_container": "body",
+            "loadScrollHighlight": "1",
+            "addons": [],
+            "breakpoints": {
+                "tablet_landscape": [769, "1024"],
+                "tablet": [681, "768"],
+                "mobile": "480"
+            },
+            "ticks": {
+                "tick": 30,
+                "ajaxurl": "https:\/\/gundetection.co.nz\/wp-admin\/admin-ajax.php",
+                "postID": 127
+            },
+            "cf_api_url": "https:\/\/gundetection.co.nz\/?tb_load_cf=",
+            "emailSub": "Check this out!"
+        };
+        var themifyScript = {
+            "lightbox": {
+                "lightboxSelector": ".themify_lightbox",
+                "lightboxOn": true,
+                "lightboxContentImages": false,
+                "lightboxContentImagesSelector": "",
+                "theme": "pp_default",
+                "social_tools": false,
+                "allow_resize": true,
+                "show_title": false,
+                "overlay_gallery": false,
+                "screenWidthNoLightbox": 600,
+                "deeplinking": false,
+                "contentImagesAreas": "",
+                "gallerySelector": ".gallery-icon > a",
+                "lightboxGalleryOn": true
+            },
+            "lightboxContext": "body"
+        };
+        var tbScrollHighlight = {
+            "fixedHeaderSelector": "#headerwrap.fixed-header",
+            "speed": "900",
+            "navigation": "#main-nav, .module-menu .ui.nav",
+            "scrollOffset": "-5",
+            "scroll": "internal"
+        }; /* ]]> */
+    </script>
+    <script type='text/javascript' defer="defer"
+        src='js/main.min.js'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "apiSettings": {
+                "root": "https:\/\/gundetection.co.nz\/wp-json\/contact-form-7\/v1",
+                "namespace": "contact-form-7\/v1"
+            },
+            "cached": "1"
+        }; /* ]]> */
+    </script>
+    <script data-minify="1" type='text/javascript'
+        src='js/scripts-bfc87e7d99271888a096528fd564075f.js'>
+    </script>
+    <script type='text/javascript' defer="defer"
+        src='js/themify.sidemenu.min.js'>
+    </script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var themifyScript = {
+            "themeURI": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra",
+            "lightbox": {
+                "lightboxSelector": ".themify_lightbox",
+                "lightboxOn": true,
+                "lightboxContentImages": false,
+                "lightboxContentImagesSelector": "",
+                "theme": "pp_default",
+                "social_tools": false,
+                "allow_resize": true,
+                "show_title": false,
+                "overlay_gallery": false,
+                "screenWidthNoLightbox": 600,
+                "deeplinking": false,
+                "contentImagesAreas": "",
+                "gallerySelector": ".gallery-icon > a",
+                "lightboxGalleryOn": true
+            },
+            "fixedHeader": "fixed-header",
+            "sticky_header": "",
+            "ajax_nonce": "c77bf601bf",
+            "ajax_url": "https:\/\/gundetection.co.nz\/wp-admin\/admin-ajax.php",
+            "parallaxHeader": "1",
+            "pageLoaderEffect": "",
+            "infiniteEnable": "0",
+            "fullPageScroll": "",
+            "shop_masonry": "no",
+            "responsiveBreakpoints": {
+                "tablet_landscape": "1024",
+                "tablet": "768",
+                "mobile": "480"
+            }
+        }; /* ]]> */
+    </script>
+    <script type='text/javascript' defer="defer"
+        src='js/themify.script.min.js'></script>
+    <script type='text/javascript'>
+        var mejsL10n = {
+            "language": "en",
+            "strings": {
+                "mejs.download-file": "Download File",
+                "mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/",
+                "mejs.fullscreen": "Fullscreen",
+                "mejs.play": "Play",
+                "mejs.pause": "Pause",
+                "mejs.time-slider": "Time Slider",
+                "mejs.time-help-text": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.",
+                "mejs.live-broadcast": "Live Broadcast",
+                "mejs.volume-help-text": "Use Up\/Down Arrow keys to increase or decrease volume.",
+                "mejs.unmute": "Unmute",
+                "mejs.mute": "Mute",
+                "mejs.volume-slider": "Volume Slider",
+                "mejs.video-player": "Video Player",
+                "mejs.audio-player": "Audio Player",
+                "mejs.captions-subtitles": "Captions\/Subtitles",
+                "mejs.captions-chapters": "Chapters",
+                "mejs.none": "None",
+                "mejs.afrikaans": "Afrikaans",
+                "mejs.albanian": "Albanian",
+                "mejs.arabic": "Arabic",
+                "mejs.belarusian": "Belarusian",
+                "mejs.bulgarian": "Bulgarian",
+                "mejs.catalan": "Catalan",
+                "mejs.chinese": "Chinese",
+                "mejs.chinese-simplified": "Chinese (Simplified)",
+                "mejs.chinese-traditional": "Chinese (Traditional)",
+                "mejs.croatian": "Croatian",
+                "mejs.czech": "Czech",
+                "mejs.danish": "Danish",
+                "mejs.dutch": "Dutch",
+                "mejs.english": "English",
+                "mejs.estonian": "Estonian",
+                "mejs.filipino": "Filipino",
+                "mejs.finnish": "Finnish",
+                "mejs.french": "French",
+                "mejs.galician": "Galician",
+                "mejs.german": "German",
+                "mejs.greek": "Greek",
+                "mejs.haitian-creole": "Haitian Creole",
+                "mejs.hebrew": "Hebrew",
+                "mejs.hindi": "Hindi",
+                "mejs.hungarian": "Hungarian",
+                "mejs.icelandic": "Icelandic",
+                "mejs.indonesian": "Indonesian",
+                "mejs.irish": "Irish",
+                "mejs.italian": "Italian",
+                "mejs.japanese": "Japanese",
+                "mejs.korean": "Korean",
+                "mejs.latvian": "Latvian",
+                "mejs.lithuanian": "Lithuanian",
+                "mejs.macedonian": "Macedonian",
+                "mejs.malay": "Malay",
+                "mejs.maltese": "Maltese",
+                "mejs.norwegian": "Norwegian",
+                "mejs.persian": "Persian",
+                "mejs.polish": "Polish",
+                "mejs.portuguese": "Portuguese",
+                "mejs.romanian": "Romanian",
+                "mejs.russian": "Russian",
+                "mejs.serbian": "Serbian",
+                "mejs.slovak": "Slovak",
+                "mejs.slovenian": "Slovenian",
+                "mejs.spanish": "Spanish",
+                "mejs.swahili": "Swahili",
+                "mejs.swedish": "Swedish",
+                "mejs.tagalog": "Tagalog",
+                "mejs.thai": "Thai",
+                "mejs.turkish": "Turkish",
+                "mejs.ukrainian": "Ukrainian",
+                "mejs.vietnamese": "Vietnamese",
+                "mejs.welsh": "Welsh",
+                "mejs.yiddish": "Yiddish"
+            }
+        };
+    </script>
+    <script type='text/javascript'
+        src='js/mediaelement-and-player.min.js'>
+    </script>
+    <script type='text/javascript'
+        src='js/mediaelement-migrate.min.js'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var _wpmejsSettings = {
+            "pluginPath": "\/wp-includes\/js\/mediaelement\/",
+            "classPrefix": "mejs-",
+            "stretching": "responsive"
+        }; /* ]]> */
+    </script>
+    <script type='text/javascript'
+        src='js/wp-mediaelement.min.js'></script>
+    <script type='text/javascript'
+        src='js/vimeo.min.js'></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: "img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",
+            data_src: "lazy-src",
+            data_srcset: "lazy-srcset",
+            data_sizes: "lazy-sizes",
+            class_loading: "lazyloading",
+            class_loaded: "lazyloaded",
+            threshold: 300,
+            callback_loaded: function (element) {
+                if (element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible") {
+                    if (element.classList.contains("lazyloaded")) {
+                        if (typeof window.jQuery != "undefined") {
+                            if (jQuery.fn.fitVids) {
+                                jQuery(element).parent().fitVids()
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        window.addEventListener('LazyLoad::Initialized', function (e) {
+            var lazyLoadInstance = e.detail.instance;
+            if (window.MutationObserver) {
+                var observer = new MutationObserver(function (mutations) {
+                    var image_count = 0;
+                    var iframe_count = 0;
+                    var rocketlazy_count = 0;
+                    mutations.forEach(function (mutation) {
+                        for (i = 0; i < mutation.addedNodes.length; i++) {
+                            if (typeof mutation.addedNodes[i].getElementsByTagName !==
+                                'function') {
+                                return
+                            }
+                            if (typeof mutation.addedNodes[i].getElementsByClassName !==
+                                'function') {
+                                return
+                            }
+                            images = mutation.addedNodes[i].getElementsByTagName('img');
+                            is_image = mutation.addedNodes[i].tagName == "IMG";
+                            iframes = mutation.addedNodes[i].getElementsByTagName('iframe');
+                            is_iframe = mutation.addedNodes[i].tagName == "IFRAME";
+                            rocket_lazy = mutation.addedNodes[i].getElementsByClassName(
+                                'rocket-lazyload');
+                            image_count += images.length;
+                            iframe_count += iframes.length;
+                            rocketlazy_count += rocket_lazy.length;
+                            if (is_image) {
+                                image_count += 1
+                            }
+                            if (is_iframe) {
+                                iframe_count += 1
+                            }
+                        }
+                    });
+                    if (image_count > 0 || iframe_count > 0 || rocketlazy_count > 0) {
+                        lazyLoadInstance.update()
+                    }
+                });
+                var b = document.getElementsByTagName("body")[0];
+                var config = {
+                    childList: !0,
+                    subtree: !0
+                };
+                observer.observe(b, config)
+            }
+        }, !1)
+    </script>
+    <script data-no-minify="1" async
+        src="js/lazyload.min.js"></script>
+    <script>
+        function lazyLoadThumb(e) {
+            var t =
+                '<img loading="lazy" data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',
+                a = '<div class="play"></div>';
+            return t.replace("ID", e) + a
+        }
+
+        function lazyLoadYoutubeIframe() {
+            var e = document.createElement("iframe"),
+                t = "https://www.youtube.com/embed/ID?autoplay=1";
+            t += 0 === this.dataset.query.length ? '' : '&' + this.dataset.query;
+            e.setAttribute("src", t.replace("ID", this.dataset.id)), e.setAttribute("frameborder", "0"), e.setAttribute(
+                    "allowfullscreen", "1"), e.setAttribute("allow",
+                    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"), this.parentNode
+                .replaceChild(e, this)
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            var e, t, a = document.getElementsByClassName("rll-youtube-player");
+            for (t = 0; t < a.length; t++) e = document.createElement("div"), e.setAttribute("data-id", a[t]
+                .dataset.id), e.setAttribute("data-query", a[t].dataset.query), e.innerHTML = lazyLoadThumb(
+                a[t].dataset.id), e.onclick = lazyLoadYoutubeIframe, a[t].appendChild(e)
+        });
+    </script>
+</body>
+
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1590937406 -->
