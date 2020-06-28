@@ -70,7 +70,7 @@
                 <div class="footer-text clearfix">
                     <div class="footer-text-inner">
                         <div class="one">&copy; <?php echo get_bloginfo('name');?> Australia</div>
-                        <div class="two">Site By > <a href="#">TechTimes</a></div>
+                        <div class="two">Site By > <a href="http://www.techtimes-in.com/" target="_blank">TechTimes</a></div>
                     </div>
                 </div>
             </footer>

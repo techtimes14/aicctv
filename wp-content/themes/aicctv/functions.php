@@ -755,3 +755,15 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+/****** Redirect to Thank you ***********/
+add_action( 'wp_footer', 'redirect_cf7' );
+ 
+function redirect_cf7() {
+?>
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+       location = 'http://localhost/aicctv/thank-you/';
+}, false );
+</script>
+<?php
+}
