@@ -49,6 +49,8 @@
         as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
     <link rel='preload' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700&#038;subset=latin'
         as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
+    <link rel='preload' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'
+        as="style" onload="this.onload=null;this.rel='stylesheet'" type='text/css' media='all' />
     <link rel="preload" href="http://localhost/aicctv/wp-content/themes/aicctv/assets/css/themify-builder-style2.min.css" as="style" />
     <script src="http://localhost/aicctv/wp-content/cache/minify/d6008.js"></script>
 
@@ -527,8 +529,6 @@ style="background-image: url(http://localhost/aicctv/wp-content/uploads/2020/06/
             "scrollTo": null
         };
         var tbLocalScript = {
-            "builder_url": "https:\/\/gundetection.co.nz\/wp-content\/themes\/themify-ultra\/themify\/themify-builder",
-            "version": "4.8.0",
             "breakpoints": {
                 "tablet_landscape": [769, "1024"],
                 "tablet": [681, "768"],
@@ -571,6 +571,11 @@ style="background-image: url(http://localhost/aicctv/wp-content/uploads/2020/06/
         jQuery(document).ready(function() {
             jQuery(".fancybox").fancybox();
         });
+        jQuery( ".realtime_accordion-title a" ).click(function() {
+            jQuery('.realtime_accordion-content').animate({
+                height: 'toggle'
+            }, 500);
+        });
     </script>
 	<script>
 var wpcf7 = {"apiSettings":{"root":"http:\/\/localhost\/aicctv\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
@@ -590,5 +595,5 @@ Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3
 Page Caching using disk: enhanced 
 Minified using disk
 
-Served from: localhost @ 2020-06-28 01:50:23 by W3 Total Cache
+Served from: localhost @ 2020-06-28 07:35:18 by W3 Total Cache
 -->
