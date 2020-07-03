@@ -69,7 +69,8 @@
                 </div>
                 <div class="footer-text clearfix">
                     <div class="footer-text-inner">
-                        <div class="one">&copy; <?php echo get_bloginfo('name');?> Australia</div>
+                        <div><a href="<?php echo get_permalink('259'); ?>">Privecy Policy</a></div>
+                        <div class="one">&copy; GDA Software Pty Ltd</div>
                         <div class="two">Site By > <a href="http://www.techtimes-in.com/" target="_blank">TechTimes</a></div>
                     </div>
                 </div>
