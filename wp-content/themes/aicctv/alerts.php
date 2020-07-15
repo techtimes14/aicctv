@@ -74,7 +74,7 @@ get_header();
                                             <div style="width: 640px; " class="wp-video">
                                             <?php $stand_alone_video = get_field('stand_alone_video'); 
                                                   $stand_alone_video_poster_image = get_field('stand_alone_video_poster_image') ?>
-                                                <video muted="1" class="wp-video-shortcode" id="video-557-1" width="640" height="360" poster="<?php echo $stand_alone_video_poster_image['url']; ?>" preload="metadata" controls="controls">
+                                                <video muted="1" class="wp-video-shortcode" style="width: 100%; height: 100%;" id="video-557-1" width="640" height="360" poster="<?php echo $stand_alone_video_poster_image['url']; ?>" preload="metadata" controls="controls">
                                                     <source type="video/mp4" src="<?php echo $stand_alone_video['url']?>" />
                                                     <a href="<?php echo $stand_alone_video['url']?>"><?php echo $stand_alone_video['url']?></a></video>
                                             </div>

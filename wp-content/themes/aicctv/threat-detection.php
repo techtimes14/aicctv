@@ -76,7 +76,7 @@ get_header();
                                         <div class="video-wrap">
                                             <div style="width: 640px; " class="wp-video">
                                             <?php $gun_detection_video = get_field('gun_detection_video')?>
-                                            <video class="wp-video-shortcode" id="video-396-1" width="640" height="360" autoplay preload="metadata" controls="controls">
+                                            <video class="wp-video-shortcode" style="width: 100%; height: 100%;" id="video-396-1" width="640" height="360" autoplay preload="metadata" controls="controls">
                                                 <source type="video/mp4" src="<?php echo $gun_detection_video['url']; ?>" />
                                             </video>
                                             </div>
@@ -181,6 +181,35 @@ get_header();
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php if(get_field('intruder_detection_video')):?>
+                                            <div class="themify_builder_row module_row clearfix fullcover module_row_2 themify_builder_396_row module_row_396-2 tb_8wfn93511 intruder_detection_video">
+                                                <div class="tb_row_frame tb_row_frame_top "></div>
+                                                <div class="tb_row_frame tb_row_frame_bottom "></div>
+                                                <div class="row_inner col_align_top">
+                                                    <div
+                                                        class="module_column tb-column col4-1 first tb_396_column module_column_0 module_column_396-2-0 tb_jjj7936">
+                                                    </div>
+                                                    <div
+                                                        class="module_column tb-column col4-2 middle tb_396_column module_column_1 module_column_396-2-1 tb_0tdz936">
+                                                        <div class="tb-column-inner">
+                                                            <div class="module module-video tb_3k89937 video-top   video-autoplay"
+                                                                style="z-index:7;">
+                                                                <div class="video-wrap">
+                                                                    <div style="width: 640px; " class="wp-video">
+                                                                    <?php $intruder_detection_video = get_field('intruder_detection_video')?>
+                                                                    <video class="wp-video-shortcode" style="width: 100%; height: 100%;" id="video-396-1" width="640" height="360" autoplay preload="metadata" controls="controls">
+                                                                        <source type="video/mp4" src="<?php echo $intruder_detection_video['url']; ?>" /></video>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="module_column tb-column col4-1 last tb_396_column module_column_2 module_column_396-2-2 tb_qfoo937">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php endif; ?>
                                             <div class="sub_column module_column sub_column_post_396 sub_column_3-0-0-0 tb_88pr997">
                                                 <div class="tb-column-inner">
                                                     <div class="module bottom_txt">

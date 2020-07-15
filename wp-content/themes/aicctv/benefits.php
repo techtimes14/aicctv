@@ -85,7 +85,7 @@ get_header();
                                         <div class="video-wrap">
                                             <div style="width: 640px; " class="wp-video">
                                             <?php $benefit_bottom_video = get_field('benefit_bottom_video')?>
-                                            <video class="wp-video-shortcode" id="video-396-1" width="640" height="360" autoplay preload="metadata" controls="controls">
+                                            <video class="wp-video-shortcode" style="width: 100%; height: 100%;" id="video-396-1" width="640" height="360" autoplay preload="metadata" controls="controls">
                                                 <source type="video/mp4" src="<?php echo $benefit_bottom_video['url']; ?>" /></video>
                                             </div>
                                         </div>
