@@ -762,7 +762,7 @@ function redirect_cf7() {
 ?>
 <script>
 document.addEventListener( 'wpcf7mailsent', function( event ) {
-       location = 'http://localhost/aicctv/thank-you/';
+       location = 'https://aicctv.com.au/thank-you/';
 }, false );
 </script>
 <?php
